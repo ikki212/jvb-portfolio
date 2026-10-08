@@ -1,0 +1,75 @@
+---
+layout: layouts/base.njk
+title: "Jonas Blichfeldt · Portfolio"
+permalink: index.html
+css: index
+nav: "projekter-home"
+rail: false
+---
+<main>
+  <section class="hero wrap">
+    <h1 class="reveal">Portfolio</h1>
+    <p class="lede reveal">Jeg hedder Jonas Blichfeldt og er mediegrafiker. Her er et udvalg af mine projekter og det, jeg laver i fritiden.</p>
+  </section>
+
+  <!-- Projekter -->
+  <section id="projekter" class="work wrap">
+    <div class="work-grid projects">
+      <a class="card project reveal r-tr" href="hvidt-og-frit.html" aria-label="Hvidt &amp; Frit, forårskampagne">
+        <div class="media"><img src="media/img-9c8053ee42.jpg" alt="A-skilt fra Hvidt &amp; Frits forårskampagne" onerror="this.style.display='none'"></div>
+        <div class="tag"><span class="t">Hvidt &amp; Frit</span><span class="s">Forårskampagne · 2026</span></div>
+        <span class="num">01</span>
+      </a>
+      <a class="card project reveal r-bl" href="fogi.html" aria-label="Formue- &amp; Investeringspleje, jubilæumsmagasin">
+        <div class="media"><img src="media/img-d67c8d3e50.jpg" alt="Jubilæumsmagasinet Mellem generationer"></div>
+        <div class="tag"><span class="t">Jubilæumsmagasin</span><span class="s">Formue- &amp; Investeringspleje · 2026</span></div>
+        <span class="num">02</span>
+      </a>
+      <a class="card project reveal r-br" href="hverdagsproblemer.html" aria-label="Hverdagsproblemer, SoMe-video for Hvidt &amp; Frit Sønderborg">
+        <div class="media"><video class="hovervid" muted loop playsinline preload="metadata" poster="media/img-2feb50e2ef.jpg" style="object-position:100% 50%"><source src="media/vid-1f13087667.mp4" type="video/mp4"></video></div>
+        <div class="tag"><span class="t">Hverdagsproblemer</span><span class="s">SoMe-video · Hvidt &amp; Frit Sønderborg</span></div>
+        <span class="num">03</span>
+      </a>
+      <h2 class="row-label reveal">Projekter</h2>
+    </div>
+  </section>
+
+  <!-- Personligt arbejde -->
+  <section id="om" class="work wrap">
+    <div class="work-grid personal">
+      <a class="card wide reveal r-tl" href="fotografi.html" aria-label="Fotografi">
+        <div class="media"><img src="media/img-da1dc7b9c0.jpg" alt="Fotografi" style="object-position:50% 60%"></div>
+        <div class="tag"><span class="t">Fotografi</span><span class="s">Biler &amp; komposition</span></div>
+        <span class="num">01</span>
+      </a>
+      <a class="card wide reveal r-br" aria-label="Video">
+        <div class="media"><video class="hovervid" muted loop playsinline preload="metadata" poster="media/img-7a4d4b8ac9.jpg"><source src="media/vid-830b2943ef.mp4" type="video/mp4"></video></div>
+        <div class="tag"><span class="t">Video</span><span class="s">Bevægelse &amp; klip</span></div>
+        <span class="num">02</span>
+      </a>
+      <h2 class="row-label reveal">Personligt arbejde</h2>
+    </div>
+  </section>
+</main>
+
+<script>
+  // subtle header border on scroll
+  const header=document.querySelector('header');
+  addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>8));
+  // scroll-reveal
+  const io=new IntersectionObserver((es)=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+  },{threshold:.15});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*60)+'ms';io.observe(el)});
+  // play hover videos on enter/focus, pause on leave/blur
+  document.querySelectorAll('.hovervid').forEach(v=>{
+    v.muted=true;v.setAttribute('muted','');
+    const card=v.closest('.card');
+    const play=()=>{v.muted=true;const p=v.play();if(p&&p.catch)p.catch(()=>{});};
+    const stop=()=>v.pause();
+    card.addEventListener('mouseenter',play);
+    card.addEventListener('mouseleave',stop);
+    card.addEventListener('focusin',play);
+    card.addEventListener('focusout',stop);
+  });
+</script>

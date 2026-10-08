@@ -1,0 +1,39 @@
+---
+layout: layouts/base.njk
+title: "Fotografi · Jonas Blichfeldt"
+permalink: fotografi.html
+css: fotografi
+nav: ""
+rail: false
+---
+<main>
+  <section class="photo-hero wrap">
+    <p class="eyebrow reveal"><a href="index.html#om">← Personligt arbejde</a></p>
+    <h1 class="reveal">Fotografi</h1>
+    <p class="lede reveal">Biler og fotografi har altid haft min store interesse, så jeg har kombineret de to hobbyer. Det har givet mig en bedre forståelse for komposition, farver og lys, og for det tekniske bag kameraindstillinger og billedredigering.</p>
+  </section>
+
+  <section class="wrap">
+    <div class="gallery">
+      <div class="row">
+        <a class="shot r-tr reveal" style="--ar:1.5"><img src="media/img-bd5a907377.jpg" style="object-position:50% 60%" alt="Mørk Mercedes i profil, lavt sænket"></a>
+        <a class="shot r-bl reveal" style="--ar:.667"><img src="media/img-bc447a05db.jpg" style="object-position:50% 58%" alt="Gul BMW i lav vinkel mod turkis himmel"></a>
+      </div>
+      <div class="row">
+        <a class="shot r-tl reveal" style="--ar:2.1"><img src="media/img-73ed4f705b.jpg" style="object-position:50% 48%" alt="Rød Ferrari 488 Spider set bagfra i aftenlys"></a>
+      </div>
+      <div class="row">
+        <a class="shot r-br reveal" style="--ar:1.5"><img src="media/img-827688f61e.jpg" style="object-position:50% 70%" alt="Gul Ferrari set bagfra i modlys"></a>
+        <a class="shot r-tr reveal" style="--ar:1"><img src="media/img-d3951d42b6.jpg" alt="Nærbillede af Ferrari-skrift på rød karrosseri"></a>
+        <a class="shot r-bl reveal" style="--ar:.667"><img src="media/img-0941a8f4f3.jpg" style="object-position:50% 55%" alt="Grøn Audi på parkeringsplads"></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  const header=document.querySelector('header');
+  addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>8));
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>

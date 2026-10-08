@@ -1,0 +1,18 @@
+<header id="top">
+  <div class="wrap bar">
+    {%- if nav == "projekter-home" %}
+    <a class="logo" href="#top" aria-label="JVB — Jonas Blichfeldt, forside">
+    {%- else %}
+    <a class="logo" href="index.html" aria-label="JVB — forside">
+    {%- endif %}
+      {% include "partials/logo.njk" %}
+    </a>
+    <nav aria-label="Primær">
+      <ul>
+        <li><a href="{% if nav == "projekter-home" %}#projekter{% else %}index.html#projekter{% endif %}">Projekter</a></li>
+        <li><a href="om-mig.html"{% if nav == "om" %} aria-current="page"{% endif %}>Om mig</a></li>
+        <li><a href="kontakt.html"{% if nav == "kontakt" %} aria-current="page"{% endif %}>Kontakt</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

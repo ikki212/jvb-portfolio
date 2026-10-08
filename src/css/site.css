@@ -1,0 +1,55 @@
+/* Fælles stilark for hele sitet. Sidernes egne afvigelser ligger i css/pages/. */
+:root{--ink:#20011D;--ink-2:#2c0828;--paper:#fff;--muted:#6b5a67;--line:rgba(32,1,29,.12);--maxw:1180px;--pad:clamp(20px,5vw,64px)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad)}
+.r-tl{border-top-left-radius:clamp(18px,3vw,38px)}
+.r-tr{border-top-right-radius:clamp(18px,3vw,38px)}
+.r-bl{border-bottom-left-radius:clamp(18px,3vw,38px)}
+.r-br{border-bottom-right-radius:clamp(18px,3vw,38px)}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s ease}
+header.scrolled{border-color:var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:84px}
+.logo{color:var(--ink);display:flex;align-items:center}
+.logo svg{height:30px;width:auto;display:block}
+nav ul{list-style:none;display:flex;gap:clamp(22px,4vw,52px);margin:0;padding:0}
+nav a{font-weight:500;font-size:1.02rem;position:relative;padding:4px 0}
+nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:2px;background:var(--ink);transition:right .28s ease}
+nav a:hover::after,nav a:focus-visible::after{right:0}
+.eyebrow a{color:var(--muted)}
+.eyebrow a:hover{color:var(--ink)}
+.sub{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:clamp(1.05rem,1.7vw,1.4rem);color:var(--muted);margin:14px 0 0}
+.cta{display:inline-flex;align-items:center;gap:12px;margin-top:clamp(26px,3.5vw,38px);padding:14px 22px;border:1px solid var(--line);color:var(--ink);font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.02rem;letter-spacing:-.01em;line-height:1;will-change:transform;background:linear-gradient(var(--ink),var(--ink)) no-repeat left center;background-size:0% 100%;transition:background-size .42s cubic-bezier(.6,0,.2,1),color .3s ease,border-color .3s ease, transform .3s ease,border-radius .3s ease}
+.cta:hover,.cta:focus-visible{color:var(--paper);border-color:var(--ink);background-size:100% 100%;transform:translateY(-3px);border-top-right-radius:16px;border-bottom-left-radius:16px}
+.meta .m{padding:20px 0;border-bottom:1px solid var(--line)}
+.meta .k{display:block;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.meta .v{font-weight:500;line-height:1.35}
+.sec-num{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(1.8rem,4vw,2.8rem);color:rgba(32,1,29,.2);line-height:1;letter-spacing:-.02em}
+.prose{max-width:62ch;font-size:clamp(1.05rem,1.35vw,1.18rem);line-height:1.65}
+.prose p{margin:0 0 1.05em}
+.more{padding-block:clamp(34px,5vw,64px);border-top:1px solid var(--line)}
+.more a .ar{transition:transform .3s ease}
+footer{background:var(--ink);color:#fff;border-top-right-radius:clamp(110px,22vw,300px)}
+.foot{padding-block:clamp(48px,7vw,88px)}
+.foot .flogo{color:#fff;margin-bottom:38px}
+.foot .flogo svg{height:64px;width:auto}
+.foot .row{display:flex;align-items:center;gap:14px;margin-top:18px}
+.foot .row svg{width:22px;height:22px;flex:0 0 auto;opacity:.9}
+.foot .row a{font-weight:500;font-size:1.02rem}
+.foot .row a:hover{text-decoration:underline}
+.rail{position:fixed;top:50%;transform:translateY(-50%);right:max(18px,calc((100vw - var(--maxw))/2 - 50px));z-index:40;display:none;flex-direction:column;gap:clamp(15px,1.9vw,23px)}
+.rail-i{display:flex;align-items:center;justify-content:flex-end;gap:11px}
+.rail-i .n{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:.76rem;letter-spacing:-.02em;line-height:1;color:var(--muted);opacity:.5;transition:opacity .3s ease,color .3s ease}
+.rail-i .dot{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--line);background:transparent;flex:0 0 auto;transition:transform .3s ease,background .3s ease,border-color .3s ease}
+.rail-i.done .dot{background:var(--muted);border-color:var(--muted)}
+.rail-i.active .n{opacity:1;color:var(--ink)}
+.rail-i.active .dot{background:var(--ink);border-color:var(--ink);transform:scale(1.35)}
+.rail-i:hover .n{opacity:1;color:var(--ink)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+nav a[aria-current]{color:var(--ink)}
+nav a:hover::after,nav a:focus-visible::after,nav a[aria-current]::after{right:0}
+@media(min-width:1320px){.rail{display:flex}}

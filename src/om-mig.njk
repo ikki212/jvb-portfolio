@@ -1,0 +1,112 @@
+---
+layout: layouts/base.njk
+title: "Om mig · Jonas Blichfeldt"
+permalink: om-mig.html
+css: om-mig
+nav: "om"
+rail: false
+---
+<main>
+  <section class="about-hero wrap">
+    <p class="lab reveal">Om mig</p>
+    <h1 class="reveal">Et stærkt visuelt produkt er noget af det mest tilfredsstillende, jeg kender.</h1>
+
+    <div class="about-top">
+      <figure class="portrait r-bl reveal" style="margin:0">
+        <img src="media/img-0048426360.jpg" alt="Portræt af Jonas Blichfeldt">
+      </figure>
+      <div class="bio reveal">
+        <p>Jeg hedder Jonas og er udlært mediegrafiker. Jeg har altid været fascineret af kreative medier, om det så er fotografi, video, design eller musik. Følelsen af at stå med et færdigt produkt, der bare sidder, er det, der driver mig til at levere så høj kvalitet som muligt.</p>
+        <p>Jeg blev udlært i januar 2025 efter 3,5 lærerige år som elev. Mediegrafikeruddannelsen er utroligt bred, og jeg blev gang på gang udfordret med nye opgaver i nye programmer, så i dag står jeg med en ret bred palette. Undervejs vandt jeg DM i Skills 2024, og jeg fik 12 til min svendeprøve.</p>
+        <p>Til daglig arbejder jeg som mediegrafiker i et grafisk produktionsmiljø. Jeg stopper heller ikke med at designe, når jeg har fri. Så tager jeg billeder, redigerer video og holder mig skarp med egne projekter.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec wrap has-art">
+    <h2 class="reveal">Hvad jeg laver</h2>
+    <div class="prose reveal">
+      <p>Jeg laver meget trykt design, især specialmagasiner, flyers og brochurer. Det er der, jeg er mest hjemme, og jeg kan godt lide, at typografien og opsætningen skal sidde lige i skabet.</p>
+      <p>Når det er digitalt, er jeg stærkest i det, der bevæger sig: infografikker, animerede SoMe-opslag og video som interviews, virksomhedsportrætter og podcastklip. På tværs af det hele er min største styrke nok min smag og flair for kreative løsninger. Jeg kan godt lide at finde det greb, der gør tingene lidt anderledes, uden at budskabet forsvinder.</p>
+    </div>
+    <div class="scroll-art" aria-hidden="true">
+      <svg viewBox="0 0 220 220"><path class="arc" d="M12 208 A196 196 0 0 1 208 12"/><circle class="arc-dot" r="5" cx="12" cy="208"/></svg>
+    </div>
+  </section>
+
+  <section class="sec wrap has-art">
+    <h2 class="reveal">Det jeg går efter</h2>
+    <div class="prose reveal">
+      <p>Jeg søger bredde i både opgaver og kunder. Jeg elsker, at mine hverdage ser forskellige ud. Den ene dag laver jeg et jubilæumsmagasin, den næste laver jeg indhold til en hjemmeside, og så klipper jeg video og animerer grafik. Den variation leder jeg efter hos et bureau.</p>
+    </div>
+    <div class="scroll-art art-2" aria-hidden="true">
+      <svg viewBox="0 0 220 220"><path class="arc" d="M12 208 A196 196 0 0 1 208 12"/><circle class="arc-dot" r="5" cx="12" cy="208"/></svg>
+    </div>
+  </section>
+
+  <section class="sec wrap">
+    <h2 class="reveal">Værktøjer</h2>
+    <div class="tools reveal">
+      <div class="toolgroup">
+        <p class="gt">Design (dagligt)</p>
+        <div class="tags"><span class="tag">Illustrator</span><span class="tag">Photoshop</span><span class="tag">InDesign</span></div>
+      </div>
+      <div class="toolgroup">
+        <p class="gt">Motion &amp; video</p>
+        <div class="tags"><span class="tag">After Effects</span><span class="tag">Premiere Pro</span></div>
+      </div>
+      <div class="toolgroup">
+        <p class="gt">Foto</p>
+        <div class="tags"><span class="tag">Lightroom</span></div>
+      </div>
+      <div class="toolgroup">
+        <p class="gt">AI &amp; automatisering</p>
+        <div class="tags"><span class="tag">Automatiserede flows</span><span class="tag">CustomGPTs</span><span class="tag">AI-billedgenerering</span><span class="tag">Kodning i Claude</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec wrap">
+    <h2 class="reveal">Kort om mig</h2>
+    <div class="meta reveal">
+      <div class="m"><span class="k">Uddannelse</span><span class="v">Udlært mediegrafiker · januar 2025</span></div>
+      <div class="m"><span class="k">Udmærkelser</span><span class="v">Vinder af DM i Skills 2024 · 12 til svendeprøven</span></div>
+      <div class="m"><span class="k">Base</span><span class="v">Holbæk · kører på hele Sjælland i bil eller tog</span></div>
+      <div class="m"><span class="k">Søger</span><span class="v">Bredde i opgaver og kunder</span></div>
+    </div>
+  </section>
+
+  <section class="more wrap reveal">
+    <a href="mailto:jonasvestb@gmail.com"><span class="ar">→</span> Skriv til mig</a>
+  </section>
+</main>
+
+<script>
+  const header=document.querySelector('header');
+  addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>8));
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // scroll-drawn arcs with a travelling dot
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const arts=[...document.querySelectorAll('.scroll-art')].map(a=>{
+    const path=a.querySelector('.arc'),dot=a.querySelector('.arc-dot');
+    const len=path.getTotalLength();
+    path.style.strokeDasharray=len;
+    if(reduce){path.style.strokeDashoffset=0;const e=path.getPointAtLength(len);dot.setAttribute('cx',e.x);dot.setAttribute('cy',e.y);return null;}
+    path.style.strokeDashoffset=len;
+    return {a,path,dot,len};
+  }).filter(Boolean);
+  if(arts.length){
+    const draw=()=>arts.forEach(({a,path,dot,len})=>{
+      const r=a.getBoundingClientRect();
+      let p=(innerHeight-r.top)/(innerHeight*0.8);
+      p=Math.max(0,Math.min(1,p));
+      path.style.strokeDashoffset=len*(1-p);
+      const pt=path.getPointAtLength(len*p);
+      dot.setAttribute('cx',pt.x);dot.setAttribute('cy',pt.y);
+      dot.style.opacity=p>0.02?1:0;
+    });
+    addEventListener('scroll',draw,{passive:true});addEventListener('resize',draw);draw();
+  }
+</script>
