@@ -22,11 +22,22 @@ rail: true
       </span>
     </div>
     <div class="vwrap reveal">
-      <div class="vframe r-tr" id="filmFrame">
+      <div class="phone">
+        <span class="island" aria-hidden="true"></span>
+        <div class="screen">
+          <div class="post-head" aria-hidden="true"><span class="av"></span><span class="lines"><span class="sk" style="width:58%"></span><span class="sk" style="width:34%"></span></span></div>
+          <div class="vframe" id="filmFrame">
         <video id="film" muted loop playsinline preload="metadata" poster="media/img-ea9e3f6f7a.jpg" aria-label="Filmen Brug for et nyt komfur">
-          <source src="media/vid-98b696bbf3.mp4" type="video/mp4">
-        </video>
-        <span class="playmark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4v16l14-8z"/></svg></span>
+              <source src="media/vid-98b696bbf3.mp4" type="video/mp4">
+            </video>
+            <span class="playmark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4v16l14-8z"/></svg></span>
+          </div>
+          <div class="post-foot" aria-hidden="true">
+            <span class="icons"><span></span><span></span><span></span></span>
+            <span class="sk" style="width:86%"></span><span class="sk" style="width:62%"></span>
+            <span class="post-head next"><span class="av"></span><span class="lines"><span class="sk" style="width:44%"></span><span class="sk" style="width:26%"></span></span></span>
+          </div>
+        </div>
       </div>
       <div class="vcap"><span class="t">Den færdige film</span><span class="s">0:30 · 4:5</span></div>
     </div>
@@ -63,17 +74,17 @@ rail: true
 
     <div class="scrub" data-end="11.3">
       <div class="scrub-sticky">
-        <div class="scrub-media">
-          <div class="scrub-frame r-tr"><video class="scrub-video" muted playsinline preload="none" poster="media/img-790ee1b6d6.jpg" aria-label="Introen, der spoler frem, når du scroller"><source src="media/vid-f49c315144.mp4" type="video/mp4"></video></div>
-          <div class="scrub-bar" aria-hidden="true"><span class="scrub-fill"></span></div>
-          <div class="scrub-time" aria-hidden="true"><span class="scrub-t">0:00</span><span class="scrub-hint">Scroll for at spole</span></div>
+        <div class="scrub-frame c0"><video class="scrub-video" muted playsinline preload="none" poster="media/img-790ee1b6d6.jpg" aria-label="Introen spoler frem, når du scroller"><source src="media/vid-f49c315144.mp4" type="video/mp4"></video></div>
+        <div class="scrub-text">
+          <p class="eyebrow">Introen, scene for scene</p>
+          <div class="scrub-tc" aria-hidden="true">0:00</div>
+          <ol class="beats">
+            <li class="beat on" data-from="0"><h3>Problemet</h3><p>En bøf, der ikke bliver stegt ordentligt.</p></li>
+            <li class="beat" data-from="3.4"><h3>Erkendelsen</h3><p>Budskabet kommer ind over panden: "Brug for et nyt komfur".</p></li>
+            <li class="beat" data-from="5.0"><h3>Steffen</h3><p>Han dukker op bag kogepladen.</p></li>
+            <li class="beat" data-from="7.7"><h3>Pointen</h3><p>I studiet lægger han hånden på komfuret og brænder sig.</p></li>
+          </ol>
         </div>
-        <ol class="beats">
-          <li class="beat on" data-from="0"><span class="tc">0:00</span><b>Problemet</b><span class="d">En bøf, der ikke bliver stegt ordentligt.</span></li>
-          <li class="beat" data-from="3.4"><span class="tc">0:03</span><b>Erkendelsen</b><span class="d">Budskabet kommer ind over panden: "Brug for et nyt komfur".</span></li>
-          <li class="beat" data-from="5.0"><span class="tc">0:05</span><b>Steffen</b><span class="d">Han dukker op bag kogepladen.</span></li>
-          <li class="beat" data-from="7.7"><span class="tc">0:08</span><b>Pointen</b><span class="d">I studiet lægger han hånden på komfuret og brænder sig.</span></li>
-        </ol>
       </div>
     </div>
   </section>
@@ -124,15 +135,14 @@ rail: true
     <div class="prose reveal">
       <p>Til sidst samlede jeg min del i Premiere Pro. Her lagde jeg musik og lydeffekter på og color gradede optagelserne, så AI-optagelsen og green screen-optagelserne kom til at hænge sammen.</p>
     </div>
-    <div class="timeline reveal">
-      <div class="tl-strip">
-        <img src="media/img-68ea375500.jpg" alt="Filmens 30 sekunder vist som et billede pr. sekund">
-        <span class="tl-rest" aria-hidden="true"></span>
-        <span class="tl-cut" aria-hidden="true"></span>
+    <div class="credit reveal">
+      <div class="cr cr-mine r-tl">
+        <span class="t">11 sek.</span>
+        <span><b>Min del</b><span class="d">0:00–0:11 · AI-sekvens, green screen, klip, lyd og farver</span></span>
       </div>
-      <div class="tl-labels">
-        <div class="tl-lab mine"><b>Min del</b><span>0:00–0:11 · AI-sekvens, green screen, klip, lyd og farver</span></div>
-        <div class="tl-lab rest"><b>Min kollegas tilbudssystem</b><span>0:11–0:30</span></div>
+      <div class="cr cr-rest r-br">
+        <span class="t">19 sek.</span>
+        <span><b>Tilbuddene</b><span class="d">0:11–0:30 · min kollegas genbrugelige system med produktslider og voiceover</span></span>
       </div>
     </div>
   </section>
@@ -193,10 +203,10 @@ rail: true
   const scrub=document.querySelector('.scrub');
   if(scrub&&!reduce){
     const sv=scrub.querySelector('video'),sticky=scrub.querySelector('.scrub-sticky');
-    const fill=scrub.querySelector('.scrub-fill'),tEl=scrub.querySelector('.scrub-t');
+    const frameEl=scrub.querySelector('.scrub-frame'),tcEl=scrub.querySelector('.scrub-tc');
     const beats=[...scrub.querySelectorAll('.beat')],froms=beats.map(b=>parseFloat(b.dataset.from));
-    const end=parseFloat(scrub.dataset.end);
-    let target=0,ticking=false,loaded=false;
+    const end=parseFloat(scrub.dataset.end),corners=['c0','c1','c2','c3'];
+    let target=0,ticking=false,loaded=false,cur=-1;
     const seek=()=>{if(sv.readyState>=1&&!sv.seeking&&Math.abs(sv.currentTime-target)>0.04)sv.currentTime=target;};
     sv.addEventListener('seeked',seek);sv.addEventListener('loadedmetadata',seek);
     const update=()=>{
@@ -204,17 +214,20 @@ rail: true
       const r=scrub.getBoundingClientRect(),top=parseFloat(getComputedStyle(sticky).top)||0;
       const p=Math.min(1,Math.max(0,(top-r.top)/((r.height-sticky.offsetHeight)||1)));
       target=p*end;
-      fill.style.width=(p*100)+'%';
-      tEl.textContent='0:'+String(Math.floor(target)).padStart(2,'0');
-      beats.forEach((b,i)=>{const nxt=i+1<froms.length?froms[i+1]:Infinity;
-        b.classList.toggle('on',target>=froms[i]&&target<nxt);b.classList.toggle('past',target>=nxt);});
+      tcEl.textContent='0:'+String(Math.floor(target)).padStart(2,'0');
+      let idx=0;froms.forEach((f,i)=>{if(target>=f)idx=i;});
+      if(idx!==cur){
+        cur=idx;
+        beats.forEach((b,i)=>{b.classList.toggle('on',i===idx);b.classList.toggle('past',i<idx);});
+        frameEl.classList.remove(...corners);frameEl.classList.add(corners[idx%4]);
+      }
       seek();
     };
     addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(update);}},{passive:true});
     addEventListener('resize',update);
     new IntersectionObserver(es=>{es.forEach(e=>{
       if(e.isIntersecting&&!loaded){loaded=true;sv.preload='auto';sv.load();
-        const p=sv.play();if(p&&p.then)p.then(()=>{sv.pause();seek();}).catch(()=>{});}
+        const pr=sv.play();if(pr&&pr.then)pr.then(()=>{sv.pause();seek();}).catch(()=>{});}
     });},{rootMargin:'600px 0px'}).observe(scrub);
     update();
   }
