@@ -1,0 +1,29 @@
+---
+description: "Den side findes ikke. Gå til forsiden for at se mine projekter."
+ogImage: media/share.jpg
+layout: layouts/base.njk
+title: "Siden findes ikke · Jonas Blichfeldt"
+permalink: 404.html
+css: kontakt
+nav: ""
+rail: false
+base: true
+eleventyExcludeFromCollections: true
+---
+<main>
+  <section class="contact wrap">
+    <p class="eyebrow reveal">404</p>
+    <h1 class="reveal">Den side<br>findes ikke.</h1>
+    <p class="lede reveal">Linket er måske forkert, eller siden er flyttet. Gå til forsiden, så finder du alle mine projekter derfra.</p>
+    <div class="links reveal">
+      <a class="clink" href="index.html"><span class="lbl">Til forsiden</span><span class="ar">→</span></a>
+    </div>
+  </section>
+</main>
+
+<script>
+  const header=document.querySelector('header');
+  addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>8));
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>

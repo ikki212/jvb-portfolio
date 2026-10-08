@@ -24,3 +24,12 @@ Jonas' portfolio til design- og reklamebureauer. Alt indhold er på dansk.
 - Hvidt & Frit forår 2026: landsdækkende tilvalgskampagne for butikkerne (ikke sommer). "Råd til mere dage" er kædens store kampagne.
 - FOGI: Cambria er kundens primære font. Format 210 × 250 mm. Faktaboksen på s. 25 har et buet indhak.
 - Jonas vandt DM i Skills 2024 og fik 12 til svendeprøven.
+
+## Deling og SEO
+- Hver side har `description` og `ogImage` i front matter. Base-layoutet laver meta description, canonical og Open Graph-tags ud fra dem og `site.url` i `src/_data/site.json`.
+- Delingsbillederne er statiske filer på 1200 × 630 i `src/media/share-*.jpg`, lavet i sitets stil (Bricolage-titel til venstre, værket til højre med ét rundet hjørne). Ny case = nyt delingsbillede.
+- `src/404.njk` er sitets 404-side. Netlify bruger den automatisk.
+
+## Kendte faldgruber
+- Flex-rækker med `flex-basis:0` og `overflow:hidden` falder sammen til 0 i højden, når de skiftes til `flex-direction:column` på mobil. Sæt `flex:none` i mobil-reglen (se fotogalleriet).
+- Tjek altid 360, 390, 768, 1024 og 1440 px. Tablet på højkant er hvor to-kolonne-layouts typisk knækker.
