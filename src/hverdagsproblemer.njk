@@ -56,9 +56,25 @@ rail: true
   <section id="s02" class="sec wrap">
     <div class="sec-head reveal"><span class="sec-num">02</span><h2>Konceptet</h2></div>
     <div class="prose reveal">
-      <p>Det er et koncept, jeg fandt på, og som vi pitchede for kunden. Hver video starter med et problem, alle kender fra hverdagen, og så er produktet løsningen. Her er problemet en bøf, der ikke bliver stegt ordentligt, og så dukker Steffen op bag kogepladen og brænder sig på den.</p>
+      <p>Det er et koncept, jeg fandt på, og som vi pitchede for kunden. Hver video starter med et problem, alle kender fra hverdagen, og så er produktet løsningen.</p>
       <p>Det kører nu som en fast serie med fire kampagner om året i samme stil, hvor vi hver gang pitcher et nyt hverdagsproblem. Den her video er fra årets tredje.</p>
       <p>Steffen bliver brugt igen og igen i butikkens markedsføring, så han er blevet en genkendelig maskot. Hvidt &amp; Frit vil jo gerne vise, at de står for rådgivning og service, og så er det vigtigt, at der er et menneske med.</p>
+    </div>
+
+    <div class="scrub" data-end="11.3">
+      <div class="scrub-sticky">
+        <div class="scrub-media">
+          <div class="scrub-frame r-tr"><video class="scrub-video" muted playsinline preload="none" poster="media/img-790ee1b6d6.jpg" aria-label="Introen, der spoler frem, når du scroller"><source src="media/vid-f49c315144.mp4" type="video/mp4"></video></div>
+          <div class="scrub-bar" aria-hidden="true"><span class="scrub-fill"></span></div>
+          <div class="scrub-time" aria-hidden="true"><span class="scrub-t">0:00</span><span class="scrub-hint">Scroll for at spole</span></div>
+        </div>
+        <ol class="beats">
+          <li class="beat on" data-from="0"><span class="tc">0:00</span><b>Problemet</b><span class="d">En bøf, der ikke bliver stegt ordentligt.</span></li>
+          <li class="beat" data-from="3.4"><span class="tc">0:03</span><b>Erkendelsen</b><span class="d">Budskabet kommer ind over panden: "Brug for et nyt komfur".</span></li>
+          <li class="beat" data-from="5.0"><span class="tc">0:05</span><b>Steffen</b><span class="d">Han dukker op bag kogepladen.</span></li>
+          <li class="beat" data-from="7.7"><span class="tc">0:08</span><b>Pointen</b><span class="d">I studiet lægger han hånden på komfuret og brænder sig.</span></li>
+        </ol>
+      </div>
     </div>
   </section>
 
@@ -91,13 +107,13 @@ rail: true
       <div>
         <div class="sec-head reveal"><span class="sec-num">04</span><h2>Steffen på green screen</h2></div>
         <div class="prose reveal">
-          <p>Green screen-delen lavede jeg i After Effects. I introen satte jeg Steffen ind bag kogepladen, så han dukker op midt i problemet og brænder sig. Bagefter står han i et grønt studie ved det nye komfur og leder videre til tilbuddene.</p>
+          <p>Green screen-delen lavede jeg i After Effects. I introen satte jeg Steffen ind bag kogepladen, så han dukker op midt i problemet. Bagefter står han i et grønt studie ved et komfur, lægger hånden på kogepladen og brænder sig, og så går filmen over i tilbuddene.</p>
           <p>Produktslideren med tilbud og voiceover er ikke min. Det er et system, min kollega lavede til den første kampagne for cirka et år siden, og som vi genbruger hver gang. Så hver video får en ny intro, mens tilbuddene altid kører i samme format.</p>
         </div>
       </div>
       <div class="clipwrap reveal">
-        <div class="clip r-bl"><video class="loopclip" muted loop playsinline preload="none" poster="media/img-78dc0edde8.jpg" aria-label="Steffen dukker op bag kogepladen"><source src="media/vid-841625fa6e.mp4" type="video/mp4"></video></div>
-        <p class="still-cap"><b>Steffen bag kogepladen</b>Lavet i After Effects</p>
+        <div class="clip r-bl"><video class="loopclip" muted loop playsinline preload="none" poster="media/img-bbd5356924.jpg" aria-label="Steffen brænder sig på kogepladen"><source src="media/vid-f6738054de.mp4" type="video/mp4"></video></div>
+        <p class="still-cap"><b>Steffen brænder sig</b>Green screen i After Effects</p>
       </div>
     </div>
   </section>
@@ -107,6 +123,17 @@ rail: true
     <div class="sec-head reveal"><span class="sec-num">05</span><h2>Klip, lyd og farver</h2></div>
     <div class="prose reveal">
       <p>Til sidst samlede jeg min del i Premiere Pro. Her lagde jeg musik og lydeffekter på og color gradede optagelserne, så AI-optagelsen og green screen-optagelserne kom til at hænge sammen.</p>
+    </div>
+    <div class="timeline reveal">
+      <div class="tl-strip">
+        <img src="media/img-68ea375500.jpg" alt="Filmens 30 sekunder vist som et billede pr. sekund">
+        <span class="tl-rest" aria-hidden="true"></span>
+        <span class="tl-cut" aria-hidden="true"></span>
+      </div>
+      <div class="tl-labels">
+        <div class="tl-lab mine"><b>Min del</b><span>0:00–0:11 · AI-sekvens, green screen, klip, lyd og farver</span></div>
+        <div class="tl-lab rest"><b>Min kollegas tilbudssystem</b><span>0:11–0:30</span></div>
+      </div>
     </div>
   </section>
 
@@ -129,6 +156,7 @@ rail: true
     const upd=()=>{
       const mid=innerHeight*0.4;let idx=0;
       secs.forEach((s,i)=>{if(s&&s.getBoundingClientRect().top<=mid)idx=i;});
+      if(innerHeight+scrollY>=document.documentElement.scrollHeight-4)idx=secs.length-1;
       items.forEach((a,i)=>{a.classList.toggle('active',i===idx);a.classList.toggle('done',i<idx);});
     };
     addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();
@@ -160,6 +188,36 @@ rail: true
     else{film.pause();if(!film.muted)setSound(false);}
   });},{threshold:.35}).observe(frame);
   if(reduce)frame.classList.add("paused");
+
+  // section 02: scrolling scrubs through the intro
+  const scrub=document.querySelector('.scrub');
+  if(scrub&&!reduce){
+    const sv=scrub.querySelector('video'),sticky=scrub.querySelector('.scrub-sticky');
+    const fill=scrub.querySelector('.scrub-fill'),tEl=scrub.querySelector('.scrub-t');
+    const beats=[...scrub.querySelectorAll('.beat')],froms=beats.map(b=>parseFloat(b.dataset.from));
+    const end=parseFloat(scrub.dataset.end);
+    let target=0,ticking=false,loaded=false;
+    const seek=()=>{if(sv.readyState>=1&&!sv.seeking&&Math.abs(sv.currentTime-target)>0.04)sv.currentTime=target;};
+    sv.addEventListener('seeked',seek);sv.addEventListener('loadedmetadata',seek);
+    const update=()=>{
+      ticking=false;
+      const r=scrub.getBoundingClientRect(),top=parseFloat(getComputedStyle(sticky).top)||0;
+      const p=Math.min(1,Math.max(0,(top-r.top)/((r.height-sticky.offsetHeight)||1)));
+      target=p*end;
+      fill.style.width=(p*100)+'%';
+      tEl.textContent='0:'+String(Math.floor(target)).padStart(2,'0');
+      beats.forEach((b,i)=>{const nxt=i+1<froms.length?froms[i+1]:Infinity;
+        b.classList.toggle('on',target>=froms[i]&&target<nxt);b.classList.toggle('past',target>=nxt);});
+      seek();
+    };
+    addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(update);}},{passive:true});
+    addEventListener('resize',update);
+    new IntersectionObserver(es=>{es.forEach(e=>{
+      if(e.isIntersecting&&!loaded){loaded=true;sv.preload='auto';sv.load();
+        const p=sv.play();if(p&&p.then)p.then(()=>{sv.pause();seek();}).catch(()=>{});}
+    });},{rootMargin:'600px 0px'}).observe(scrub);
+    update();
+  }
 
   // looping clip in section 04 only runs while on screen
   document.querySelectorAll('.loopclip').forEach(v=>{

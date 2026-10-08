@@ -155,6 +155,7 @@ rail: true
     const upd=()=>{
       const mid=innerHeight*0.4;let idx=0;
       secs.forEach((s,i)=>{if(s&&s.getBoundingClientRect().top<=mid)idx=i;});
+      if(innerHeight+scrollY>=document.documentElement.scrollHeight-4)idx=secs.length-1;
       items.forEach((a,i)=>{a.classList.toggle('active',i===idx);a.classList.toggle('done',i<idx);});
     };
     addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();

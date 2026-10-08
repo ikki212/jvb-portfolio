@@ -70,39 +70,29 @@ rail: true
   <section id="s04" class="sec wrap">
     <div class="sec-head reveal"><span class="sec-num">04</span><h2>Ét system, mange formater</h2></div>
     <div class="prose reveal">
-      <p>Kampagnen skulle kunne bruges både i butikkerne og digitalt. I InDesign tilpassede jeg layoutet til hvert eneste format, så budskab, produkter og splash stadig spillede sammen, uanset om det var et højt klæb, en webshop-hero eller en butiksskærm.</p>
+      <p>Kampagnen skulle kunne bruges både i butikkerne og digitalt. I InDesign tilpassede jeg layoutet til hvert eneste format, så budskab, produkter og splash stadig spillede sammen, uanset om det var et bredt klæb, en butiksskærm eller et nyhedsbrev. Her er ét eksempel på hver type.</p>
     </div>
 
     <figure class="plate plate-lg full r-tl reveal">
       <div class="frame r-tl"><img src="media/img-18cd8d686e.jpg" alt="Klæb i bredformat"></div>
-      <figcaption><span class="c-t">Bredt klæb</span><span class="c-s">1500×500</span></figcaption>
+      <figcaption><span class="c-t">Klæb</span><span class="c-s">1500×500</span></figcaption>
     </figure>
 
-    <div class="masonry">
-      <figure class="plate r-br reveal">
-        <div class="frame r-br"><img src="media/img-31e48408b0.jpg" alt="Butiksskærm, liggende"></div>
-        <figcaption><span class="c-t">Liggende butiksskærm</span><span class="c-s">1920×1080</span></figcaption>
-      </figure>
-      <figure class="plate r-tr reveal">
-        <div class="frame r-tr"><img src="media/img-8e394bca7b.jpg" alt="Klæb i højformat"></div>
-        <figcaption><span class="c-t">Højt klæb</span><span class="c-s">500×1500</span></figcaption>
-      </figure>
+    <div class="formats">
       <figure class="plate r-bl reveal">
-        <div class="frame r-bl"><img src="media/img-3e486691a2.jpg" alt="Nyhedsbrev"></div>
-        <figcaption><span class="c-t">Nyhedsbrev</span><span class="c-s">750×420</span></figcaption>
+        <div class="frame r-bl"><img src="media/img-d58b6142ee.jpg" alt="Butiksskærm, stående"></div>
+        <figcaption><span class="c-t">Butiksskærm</span><span class="c-s">1080×1920</span></figcaption>
       </figure>
-      <figure class="plate r-tl reveal">
-        <div class="frame r-tl"><img src="media/img-d58b6142ee.jpg" alt="Butiksskærm, stående"></div>
-        <figcaption><span class="c-t">Stående butiksskærm</span><span class="c-s">1080×1920</span></figcaption>
-      </figure>
-      <figure class="plate r-br reveal">
-        <div class="frame r-br"><img src="media/img-d0baabb491.jpg" alt="Organisk opslag til sociale medier"></div>
-        <figcaption><span class="c-t">Organisk SoMe</span><span class="c-s">1080×1080</span></figcaption>
-      </figure>
-      <figure class="plate r-bl reveal">
-        <div class="frame r-bl"><img src="media/img-47cb88d97f.jpg" alt="Klæb i kvadratformat"></div>
-        <figcaption><span class="c-t">Kvadratisk klæb</span><span class="c-s">500×500</span></figcaption>
-      </figure>
+      <div class="formats-stack">
+        <figure class="plate r-tr reveal">
+          <div class="frame r-tr"><img src="media/img-d0baabb491.jpg" alt="Organisk opslag til sociale medier"></div>
+          <figcaption><span class="c-t">Organisk SoMe</span><span class="c-s">1080×1080</span></figcaption>
+        </figure>
+        <figure class="plate r-br reveal">
+          <div class="frame r-br"><img src="media/img-3e486691a2.jpg" alt="Nyhedsbrev"></div>
+          <figcaption><span class="c-t">Nyhedsbrev</span><span class="c-s">750×420</span></figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -134,6 +124,7 @@ rail: true
     const upd=()=>{
       const mid=innerHeight*0.4;let idx=0;
       secs.forEach((s,i)=>{if(s&&s.getBoundingClientRect().top<=mid)idx=i;});
+      if(innerHeight+scrollY>=document.documentElement.scrollHeight-4)idx=secs.length-1;
       items.forEach((a,i)=>{a.classList.toggle('active',i===idx);a.classList.toggle('done',i<idx);});
     };
     addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();
